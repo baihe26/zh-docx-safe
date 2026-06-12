@@ -74,6 +74,13 @@ $env:PYTHONUTF8='1'
 python -X utf8 "$env:USERPROFILE\.codex\skills\zh-docx-safe\scripts\zh_docx_safe.py" --spec "D:\path\report_spec.json"
 ```
 
+Generate a starter spec:
+
+```powershell
+$env:PYTHONUTF8='1'
+python -X utf8 "$env:USERPROFILE\.codex\skills\zh-docx-safe\scripts\zh_docx_safe.py" --write-example "D:\path\basic-report.json"
+```
+
 Example JSON:
 
 ```json
@@ -85,6 +92,8 @@ Example JSON:
     {"heading": "核心判断", "level": 1},
     {"paragraph": "这里是中文正文。"},
     {"bullets": ["第一点", "第二点"]},
+    {"note_box": {"title": "注意", "items": ["中文路径要保持 UTF-8。"]}},
+    {"quote": "Chinese text should survive the JSON -> Python -> DOCX pipeline."},
     {
       "table": {
         "headers": ["标题", "说明"],
@@ -102,6 +111,11 @@ Example JSON:
 
 ```text
 zh-docx-safe/
+├── LICENSE
+├── README.md
+├── requirements.txt
+├── examples/
+│   └── basic-report.json
 ├── SKILL.md
 ├── agents/
 │   └── openai.yaml
@@ -116,4 +130,3 @@ zh-docx-safe/
 - The helper script requires `python-docx`.
 - For formal Chinese manuscripts, prefer `宋体`; for internal reports, `微软雅黑` is usually more readable.
 - If a terminal still corrupts Chinese paths, write content to UTF-8 files first and run scripts with `python -X utf8`.
-

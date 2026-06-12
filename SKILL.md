@@ -37,7 +37,7 @@ $env:PYTHONUTF8='1'; python -X utf8 path\to\script.py
 
 ## Helper Script
 
-For routine Chinese reports, use `scripts/zh_docx_safe.py`. It reads a UTF-8 JSON spec and writes a `.docx` with Chinese fonts, headings, paragraphs, bullets, tables, source links, and zip validation.
+For routine Chinese reports, use `scripts/zh_docx_safe.py`. It reads a UTF-8 JSON spec and writes a `.docx` with Chinese fonts, headings, paragraphs, bullets, numbered lists, tables, note boxes, quotes, source links, and zip validation.
 
 Example JSON:
 
@@ -50,6 +50,8 @@ Example JSON:
     {"heading": "核心判断", "level": 1},
     {"paragraph": "这里是中文正文。"},
     {"bullets": ["第一点", "第二点"]},
+    {"note_box": {"title": "注意", "items": ["中文路径要保持 UTF-8。"]}},
+    {"quote": "Chinese text should survive the JSON -> Python -> DOCX pipeline."},
     {"table": {"headers": ["标题", "说明"], "rows": [["A", "中文说明"]]}}
   ]
 }
@@ -59,6 +61,12 @@ Run:
 
 ```powershell
 $env:PYTHONUTF8='1'; python -X utf8 "C:\Users\柴鱼\.codex\skills\zh-docx-safe\scripts\zh_docx_safe.py" --spec "D:\path\CX_tmp_spec.json"
+```
+
+Generate a starter spec:
+
+```powershell
+$env:PYTHONUTF8='1'; python -X utf8 "C:\Users\柴鱼\.codex\skills\zh-docx-safe\scripts\zh_docx_safe.py" --write-example "D:\path\basic-report.json"
 ```
 
 ## Debugging

@@ -1,0 +1,65 @@
+{
+  "title": "中文 DOCX 稳定生成示例",
+  "subtitle": "zh-docx-safe example",
+  "output": "D:/tmp/CX_中文DOCX稳定生成示例.docx",
+  "sections": [
+    {
+      "heading": "核心判断",
+      "level": 1
+    },
+    {
+      "paragraph": "这是一份包含中文路径、中文正文、中英混排和表格的 Word 生成示例。"
+    },
+    {
+      "note_box": {
+        "title": "注意",
+        "items": [
+          "用 UTF-8 JSON 作为输入。",
+          "运行 Python 时使用 -X utf8。",
+          "生成后自动校验 DOCX zip 完整性。"
+        ]
+      }
+    },
+    {
+      "heading": "中英混排",
+      "level": 1
+    },
+    {
+      "bullets": [
+        "SilMA-PRP 与 Sca-1+ 这类中英混排应正常显示。",
+        "YAP/p-MLC2、UTF-8/GBK、PowerShell pipe 等关键词不会被乱码破坏。"
+      ]
+    },
+    {
+      "quote": "If Chinese text survives the whole path from JSON to DOCX, the workflow is stable."
+    },
+    {
+      "table": {
+        "headers": [
+          "项目",
+          "预期结果"
+        ],
+        "rows": [
+          [
+            "中文路径",
+            "正常创建输出目录和文件"
+          ],
+          [
+            "中文字体",
+            "使用微软雅黑作为默认东亚字体"
+          ],
+          [
+            "表格",
+            "中英混排内容不溢出、不乱码"
+          ]
+        ]
+      }
+    }
+  ],
+  "sources": [
+    [
+      "zh-docx-safe",
+      "https://github.com/baihe26/zh-docx-safe"
+    ]
+  ]
+}
