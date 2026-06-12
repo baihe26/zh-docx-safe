@@ -1,0 +1,4 @@
+interface:
+  display_name: "中文 DOCX 稳定生成"
+  short_description: "稳定生成中文 Word 文档，规避 Windows 编码和中文路径问题。"
+  default_prompt: "请使用 zh-docx-safe 技能稳定生成中文 Word 文档。"
